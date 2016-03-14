@@ -18,7 +18,7 @@
     "release-major": "git checkout master && npm version major && git push origin master --tags",
     "release-as-lib": "git checkout master && npm run build && git commit -am 'Distribute' && npm version major && git push origin master --tags",
     "mocha": "source .testing; mocha --opts specs/mocha.opts specs",
-    "test": "npm run mocha -s"
+    "test": "npm run mocha"
   },
   "repository": {
     "type": "git",
@@ -88,8 +88,8 @@
     "tcomb-validation": "^2.2.0",
     "url-loader": "^0.5.6",
     "util": "^0.10.3",
-    "webpack": "^1.9.10",
-    "webpack-dev-server": "^1.9.0",
+    "webpack": "^1.12.11",
+    "webpack-dev-server": "^1.14.1",
     "winston": "^1.0.0",
     "winston-mail": "^0.5.0",
     "yargs": "^3.9.1"
