@@ -49,5 +49,6 @@ for more details.
 
 TODO
 ------------------
-Update all dependencies
-Server-side React
+* Update all dependencies
+* Server-side React
+* Add screenshots
