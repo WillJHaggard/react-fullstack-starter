@@ -1,0 +1,20 @@
+{
+  "name": "react-fullstack-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WillJHaggard/react-fullstack-starter.git"
+  },
+  "keywords": [],
+  "author": "Will J. Haggard <willjhaggard@gmail.com> (http://willjhaggard.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WillJHaggard/react-fullstack-starter/issues"
+  },
+  "homepage": "https://github.com/WillJHaggard/react-fullstack-starter#readme"
+}
