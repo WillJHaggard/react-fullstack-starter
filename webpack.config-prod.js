@@ -6,14 +6,9 @@ import Webpack from "webpack";
 import GlobalizePlugin from "globalize-webpack-plugin";
 import CommonsChunkPlugin from "webpack/lib/optimize/CommonsChunkPlugin";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
+import {NODE_MODULES_DIR, SHARED_DIR, FRONTEND_DIR, BACKEND_DIR, PUBLIC_DIR} from "shared/constants"
 
 // CONSTANTS =======================================================================================
-const NODE_MODULES_DIR = Path.join(__dirname, "node_modules");
-const SHARED_DIR = Path.join(__dirname, "shared");
-const FRONTEND_DIR = Path.join(__dirname, "frontend");
-const BACKEND_DIR = Path.join(__dirname, "backend");
-const PUBLIC_DIR = Path.join(__dirname, "public");
-
 // Paths to minified library distributions relative to the root node_modules
 const MINIFIED_DEPS = [
   "moment/min/moment.min.js",
@@ -43,15 +38,15 @@ export default {
   entry: {
     bundle: "./frontend/app",
 
-		vendors: [
-			"globalize",
-			"globalize/dist/globalize-runtime/number",
-			"globalize/dist/globalize-runtime/plural",
-			"globalize/dist/globalize-runtime/message",
-			"globalize/dist/globalize-runtime/currency",
-			"globalize/dist/globalize-runtime/date",
-			"globalize/dist/globalize-runtime/relative-time"
-		],
+    vendors: [
+      "globalize",
+      "globalize/dist/globalize-runtime/number",
+      "globalize/dist/globalize-runtime/plural",
+      "globalize/dist/globalize-runtime/message",
+      "globalize/dist/globalize-runtime/currency",
+      "globalize/dist/globalize-runtime/date",
+      "globalize/dist/globalize-runtime/relative-time"
+    ],
   },
 
   // Output files: http://webpack.github.io/docs/configuration.html#output
@@ -152,21 +147,21 @@ export default {
     new Webpack.IgnorePlugin(/^vertx$/),
     new Webpack.DefinePlugin(DEFINE),
     new Webpack.optimize.DedupePlugin(),
-		new Webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false,
-			},
-		}),
+    new Webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+    }),
     new Webpack.optimize.CommonsChunkPlugin("vendors", "vendors.js?[chunkhash]"),
     new Webpack.optimize.UglifyJsPlugin({mangle: {except: ["$", "window", "document", "console"]}}),
     new ExtractTextPlugin("[name].css?[contenthash]"),
     new GlobalizePlugin({
-			production: true,
-			developmentLocale: "en",
-			supportedLocales: ["en", "ru"],
-			messages: "messages/[locale].json",
-			output: "i18n/[locale].[hash].js"
-		}),
+      production: true,
+      developmentLocale: "en",
+      supportedLocales: ["en", "ru"],
+      messages: "messages/[locale].json",
+      output: "i18n/[locale].[hash].js"
+    }),
     function () {
       this.plugin("done", function (stats) {
         let jsonStats = stats.toJson({
