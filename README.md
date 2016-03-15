@@ -4,7 +4,7 @@
 This project aims to provide basic solutions for typical web app tasks. Bundling, indexing, pagination, filtering, sorting, CRUD, forms, authorization, tests, lints, live reloads, universal app, code sharing between server and browser.
 
 ![alt tag](/tech-stack.jpg)
-
+(Not a final screen; prototype.)
 
 ## Install
 
