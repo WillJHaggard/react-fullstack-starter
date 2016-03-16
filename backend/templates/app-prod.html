@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+
+  <link href="//flathash.com" rel="dns-prefetch"/>
+{% endblock %}
+
+{% block body %}
+  <main id="app">
+    <div class="gear lg">
+      <i class="fa fa-cog fa-spin"></i>
+    </div>
+  </main>
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+
+  <link href="/public/bundle.css?{{ hashes.bundleCss }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+
+  <script src="/public/vendors.js?{{ hashes.vendorsJs }}"></script>
+  <script src="/public/bundle.js?{{ hashes.bundleJs }}"></script>
+{% endblock %}
