@@ -99,17 +99,17 @@ window._state = new Baobab(
       ]),
     },
 
-    monsters: {
+    softEngs: {
       // DATA
       total: 0,
       items: {},
       pagination: [],
 
       // INDEX
-      filters: MONSTER.index.filters,
-      sorts: MONSTER.index.sorts,
-      offset: MONSTER.index.offset,
-      limit: MONSTER.index.limit,
+      filters: SOFT.index.filters,
+      sorts: SOFT.index.sorts,
+      offset: SOFT.index.offset,
+      limit: SOFT.index.limit,
       // filterForm ???
       // filterFormErrors ???
 
@@ -124,13 +124,13 @@ window._state = new Baobab(
       havePendingRequests: monkey([
         ["ajaxQueue"],
         function (queue) {
-          return ajaxQueueContains(queue, monsterApi.indexUrl);
+          return ajaxQueueContains(queue, softEngApi.indexUrl);
         }
       ]),
 
       fullLoad: monkey([
-        ["monsters", "total"],
-        ["monsters", "pagination"],
+        ["softEngs", "total"],
+        ["softEngs", "pagination"],
         function (total, pagination) {
           let loaded = filter(id => id, pagination).length;
           if (loaded < total) {
@@ -144,8 +144,8 @@ window._state = new Baobab(
       ]),
 
       currentItem: monkey([
-        ["monsters", "items"],
-        ["monsters", "id"],
+        ["softEngs", "items"],
+        ["softEngs", "id"],
         function (items, id) {
           if (id) {
             return items[id];
@@ -156,13 +156,13 @@ window._state = new Baobab(
       ]),
 
       currentItems: monkey([
-        ["monsters", "filters"],
-        ["monsters", "sorts"],
-        ["monsters", "offset"],
-        ["monsters", "limit"],
-        ["monsters", "items"],
-        ["monsters", "pagination"],
-        ["monsters", "fullLoad"],
+        ["softEngs", "filters"],
+        ["softEngs", "sorts"],
+        ["softEngs", "offset"],
+        ["softEngs", "limit"],
+        ["softEngs", "items"],
+        ["softEngs", "pagination"],
+        ["softEngs", "fullLoad"],
         function (filters, sorts, offset, limit, items, pagination, fullLoad) {
           let itemsArray = map(id => id && items[id], pagination);
           return pipe(

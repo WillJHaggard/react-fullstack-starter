@@ -40,15 +40,9 @@ function parseDate(value, options) {
 
 function parseInteger(value) {
   value = value.trim();
-  if (value == "") {
-    return null;
-  } else {
-    if (/^-?\d+$/.test(value)) {
-      return Number(value);
-    } else {
-      return value;
-    }
-  }
+  if (value == "") return null;
+  else if (/^-?\d+$/.test(value)) return Number(value);
+  else return value;
 }
 
 function parseFloat(value) {
