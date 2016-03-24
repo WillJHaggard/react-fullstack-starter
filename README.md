@@ -41,7 +41,7 @@ $ npm test -s
 
 Specific tests (`--` is an NPM syntax to pass arguments)
 ```
-$ npm test -- --grep "api/robots POST" -s
+$ npm test -- --grep "api/uxEngs POST" -s
 ```
 
 Refer to [Mocha](https://github.com/mochajs/mocha) and [Chai](https://github.com/chaijs/chai)
